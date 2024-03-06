@@ -4,7 +4,7 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "post",
+    "displayName": "Posts",
     "description": ""
   },
   "options": {
@@ -24,12 +24,26 @@
         "images"
       ]
     },
-    "contenct": {
+    "content": {
       "type": "richtext"
     },
     "slug": {
       "type": "string",
       "unique": true,
+      "required": true
+    },
+    "Category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "posts"
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "description": {
+      "type": "text",
       "required": true
     }
   }
