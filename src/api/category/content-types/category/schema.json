@@ -21,12 +21,6 @@
     "bottomText": {
       "type": "richtext"
     },
-    "posts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::post.post",
-      "mappedBy": "Category"
-    },
     "image": {
       "type": "media",
       "multiple": true,
@@ -34,6 +28,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "mappedBy": "categories"
     }
   }
 }

@@ -32,9 +32,9 @@
       "unique": true,
       "required": true
     },
-    "Category": {
+    "categories": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "posts"
     },

@@ -783,12 +783,12 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     name: Attribute.String;
     slug: Attribute.String;
     bottomText: Attribute.RichText;
+    image: Attribute.Media;
     posts: Attribute.Relation<
       'api::category.category',
-      'oneToMany',
+      'manyToMany',
       'api::post.post'
     >;
-    image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -823,9 +823,9 @@ export interface ApiPostPost extends Schema.CollectionType {
     image: Attribute.Media & Attribute.Required;
     content: Attribute.RichText;
     slug: Attribute.String & Attribute.Required & Attribute.Unique;
-    Category: Attribute.Relation<
+    categories: Attribute.Relation<
       'api::post.post',
-      'manyToOne',
+      'manyToMany',
       'api::category.category'
     >;
     date: Attribute.Date & Attribute.Required;
